@@ -17,19 +17,18 @@ class Solution:
     b = []
 
     def set_board(board):
-        self.b = board
+        b = board
 
-    def return_board(board):
-        return board
+    def return_board():
+        return b
 
     def set_board_size(board):
         m = len(board)
         n = len(board[0])
 
     def run(self, board):
-        set_board(self, board)
+        set_board(board)
         get_board_size(board)
-        return "True"
 
     #determine size of board
     #iterate through each cell
