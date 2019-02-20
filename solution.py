@@ -10,7 +10,6 @@
          #  [1,1,0]
          # ]
 
-
 class Solution:
     m = 0
     n = 0
@@ -18,17 +17,17 @@ class Solution:
 
     def set_board(board):
         b = board
-
-    def return_board():
-        return b
+        set_board_size()
 
     def set_board_size(board):
         m = len(board)
         n = len(board[0])
 
+    def return_board():
+        return b
+
     def run(self, board):
         set_board(board)
-        get_board_size(board)
 
     #determine size of board
     #iterate through each cell
