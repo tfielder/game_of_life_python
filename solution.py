@@ -53,10 +53,13 @@ class Solution:
 
         def find_neighbors(self, coordinates):
           count = 0
-          for i in range(-1, 2):
+          for i in range(-1 , 2):
             for j in range(-1, 2):
-              if coordinates[0 + i] and coordinates[1+ j]
-                print(board[coordinates[0]+i]][coordinates[1]+j]])
+              first = coordinates[0] + i
+              second = coordinates[1] + j
+
+              if self.b[first][second]
+              # print(cool)
 
         def get_coordinates(self):
           for i in range(return_rows(self)):
@@ -72,6 +75,8 @@ class Solution:
         get_coordinates(self)
         return_new_board(self)
         return_board(self)
+
+
 
 b1 = [[1,0,1],[1,1,1],[0,1,0],[0,0,1]]
 
