@@ -37,24 +37,22 @@ class Solution:
           return self.nb
 
         def within_range(self, coordinate, elements):
-          if coordinate > 0 and coordinate < elements:
+          if coordinate >= 0 and coordinate < elements:
             return True
           else:
             return False
 
         def find_neighbors(self, coordinates):
           count = 0
+          checks = 0
           for i in range(-1 , 2):
             for j in range(-1, 2):
               first = coordinates[0] + i
               second = coordinates[1] + j
-
               if (within_range(self, first, self.m)) and (within_range(self, second, self.n)):
                 if i == 0 and j == 0:
                   continue
                 else:
-                  #print(coordinates)
-                  #print(self.b[coordinates[0] + i][coordinates[1] + j])
                   count += self.b[coordinates[0] + i][coordinates[1] + j]
           return count
 
@@ -62,23 +60,26 @@ class Solution:
           for i in range(return_rows(self)):
             for j in range(return_columns(self)):
               coordinates = [i, j]
-              find_neighbors(self, coordinates)
               amt = find_neighbors(self, coordinates)
-              #print(amt)
+              print(amt)
+              print(f"coordinates are {i}, {j}")
+              self.nb[i][j] = amt
+              print(id(self.nb))
+              #print(self.nb[i][j])
+          print(id(self.nb))
               #update_new_board(self, coordinates, amt)
-
-
-
-
         def update_new_board(self):
           return self.nb
 
         set_board(self, board)
         create_new_board(self)
-        return_new_board(self)
+        print(return_new_board(self))
         get_coordinates(self)
 
         #return_board(self)
+
+
+
 b1 = [[1,0,1],[1,1,1],[0,1,0]]
 b2 = [[1,0,1],[1,1,1],[0,1,0],[0,0,1]]
 
