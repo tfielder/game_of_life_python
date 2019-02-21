@@ -48,10 +48,13 @@ class Solution:
             for j in range(-1, 2):
               first = coordinates[0] + i
               second = coordinates[1] + j
+
               if (within_range(self, first, self.m)) and (within_range(self, second, self.n)):
                 if i == 0 and j == 0:
                   continue
                 else:
+                  #print(coordinates)
+                  #print(self.b[coordinates[0] + i][coordinates[1] + j])
                   count += self.b[coordinates[0] + i][coordinates[1] + j]
           return count
 
@@ -61,8 +64,8 @@ class Solution:
               coordinates = [i, j]
               find_neighbors(self, coordinates)
               amt = find_neighbors(self, coordinates)
-              print(amt)
-              update_new_board(self, coordinates, amt)
+              #print(amt)
+              #update_new_board(self, coordinates, amt)
 
 
 
@@ -76,15 +79,13 @@ class Solution:
         get_coordinates(self)
 
         #return_board(self)
-
-
-
-b1 = [[1,0,1],[1,1,1],[0,1,0],[0,0,1]]
+b1 = [[1,0,1],[1,1,1],[0,1,0]]
+b2 = [[1,0,1],[1,1,1],[0,1,0],[0,0,1]]
 
 s1 = Solution()
 s1.run(b1)
 
-    
+
 
     #determine size of board
     #iterate through each cell
