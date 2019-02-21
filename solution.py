@@ -56,26 +56,22 @@ class Solution:
                   count += self.b[coordinates[0] + i][coordinates[1] + j]
           return count
 
-        def get_coordinates(self):
+        def get_neighbors(self):
+          amt = []
           for i in range(return_rows(self)):
             for j in range(return_columns(self)):
               coordinates = [i, j]
-              amt = find_neighbors(self, coordinates)
-              print(amt)
-              print(f"coordinates are {i}, {j}")
-              self.nb[i][j] = amt
-              print(id(self.nb))
-              #print(self.nb[i][j])
-          print(id(self.nb))
-              #update_new_board(self, coordinates, amt)
+              amt.append(find_neighbors(self, coordinates))
+          return amt
+
         def update_new_board(self):
           return self.nb
 
         set_board(self, board)
         create_new_board(self)
-        print(return_new_board(self))
-        get_coordinates(self)
-
+        #get_coordinates(self)
+        self.nb = get_neighbors(self)
+        print(self.nb)
         #return_board(self)
 
 
