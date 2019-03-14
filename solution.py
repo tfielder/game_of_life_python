@@ -34,8 +34,8 @@ class Solution():
         coordinates = [row, column]
         self.newboard[row][column] = self.find_neighbors_at_coordinate(coordinates)
 
-  def update_neighbor_board(self, coordinates, neighbors):
-    self.newboard[coordinates[0]][coordinates[1]] = neighbors
+  # def update_neighbor_board(self, coordinates, neighbors):
+  #   self.newboard[coordinates[0]][coordinates[1]] = neighbors
 
   def find_neighbors_at_coordinate(self, coordinates):
     neighbors = 0
@@ -82,7 +82,7 @@ def main():
         [0,1,0]]
 
   b2 = [[1,1,1],
-        [1,1,1],
+        [1,0,1],
         [0,1,1]]
 
   b3 = [[0,1,0],
