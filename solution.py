@@ -8,7 +8,7 @@ class Solution():
     return self.board
 
   def create_new_board(self):
-    self.newboard = ([[0] * self.rows_count]) * self.columns_count
+    self.newboard = ([[0] * self.columns_count]) * self.rows_count
 
   def update_new_board(self, coordinates, amount):
     self.newboard[coordinates[0]][coordinates[1]] = amount
@@ -26,10 +26,10 @@ class Solution():
     for row in range(self.rows_count):
       for column in range(self.columns_count):
         coordinates = [row, column]
-        amount = self.find_neighbors(coordinates)
+        self.find_neighbors(coordinates)
 
   def find_neighbors(self, coordinates):
-    count = 0
+    neighbors = 0
     for row in range(-1 , 2):
       for column in range(-1, 2):
         first = coordinates[0] + row
@@ -38,25 +38,24 @@ class Solution():
           if row == 0 and column == 0:
             continue
           else:
-            count += self.board[coordinates[0] + row][coordinates[1] + column]
-    return count
+            neighbors += self.board[coordinates[0] + row][coordinates[1] + column]
+    self.newboard[coordinates[0]][coordinates[1]] = neighbors
+    return neighbors
 
-  # def update_board(self):
-  #   print("hi")
-    # for i in range(self.return_rows_count()):
-    #   for j in range(self.return_columns_count()):
-        # if self.b[i][j] == 1:
-        #   if self.nb[i][j] <= 1 or self.nb[i][j] >= 4:
-        #     self.b[i][j] = 0
-        # if self.b[i][j] == 0 and self.nb[i][j] == 3:
-        #     self.b[i][j] = 1
+  def update_board(self):
+    for row in range(self.rows_count):
+      for column in range(self.columns_count):
+        if self.board[row][column] == 1:
+          if self.newboard[row][column] <= 1 or self.newboard[row][column] >= 4:
+            self.board[row][column] = 0
+        if self.board[row][column] == 0 and self.newboard[row][column] == 3:
+            self.board[row][column] = 1
 
   def run(self, board):
     self.set_board(board)
     self.create_new_board()
     self.get_neighbors()
-    print(self.newboard)
-    #self.update_board()
+    self.update_board()
     print(self.return_board())
 
 def main():
@@ -68,7 +67,12 @@ def main():
         [1,1,1],
         [0,1,1]]
 
+  b3 = [[0,0,0],
+        [0,0,0],
+        [0,0,0],
+        [0,0,0]]
+
   s1 = Solution()
-  s1.run(b1)
+  s1.run(b3)
 
 if __name__ == '__main__': main()
