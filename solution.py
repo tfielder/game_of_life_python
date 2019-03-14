@@ -1,23 +1,22 @@
 class Solution():
   def run(self, board):
     response = "r"
+    self.set_board(board)
+    self.welcome_message()
     while response != "q":
-      self.set_board(board)
-      self.welcome_message()
+      self.print_board()
       self.create_new_board()
       self.check_for_neighbors()
       self.update_board()
-      self.print_board()
-      x = input()
+      response = input()
     self.good_bye_message()
 
   def welcome_message(self):
     print("Welcome to Conway's Game of Life")
     print("1s represent living cells, zeros represent non-living cells")
-    print("Your board starts like this:")
-    self.print_board()
-    print("Press the spacebar to iterate through each moment in time.")
+    print("Press enter to iterate through each moment in time.")
     print("Type 'q' to quit at any point.")
+    print("Your board starts like this:")
 
   def set_board(self, board):
     self.board = board
