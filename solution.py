@@ -72,7 +72,7 @@ class Solution():
     print('')
 
   def good_bye_message(self):
-    print('Thanks for playing')
+    print('Thanks for playing.')
 
 def main():
   b1 = [[1,0,1],
