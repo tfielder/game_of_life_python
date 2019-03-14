@@ -8,6 +8,7 @@ class Solution():
       self.create_new_board()
       self.check_for_neighbors()
       self.update_board()
+      #self.print_newboard()
       response = input()
       self.print_board()
     self.good_bye_message()
@@ -62,7 +63,7 @@ class Solution():
         if self.board[row][column] == 1:
           if self.newboard[row][column] <= 1:
             self.board[row][column] = 0
-          if self.newboard[row][column] >= 4:
+          elif self.newboard[row][column] >= 4:
             self.board[row][column] = 0
         if self.board[row][column] == 0 and self.newboard[row][column] >= 3:
             self.board[row][column] = 1
@@ -72,6 +73,12 @@ class Solution():
     for row in range(self.rows_count):
         print(self.board[row])
     print('')
+
+  # def print_newboard(self):
+  #   print('newboard')
+  #   for row in range(self.rows_count):
+  #       print(self.newboard[row])
+  #   print('')
 
   def good_bye_message(self):
     print('Thanks for playing.')
@@ -90,11 +97,12 @@ def main():
         [1,0,1],
         [1,1,0]]
 
-  b4 = [[0,0,0,0,0],
-        [0,0,0,0,0],
-        [0,1,1,1,0],
-        [0,0,0,0,0],
-        [0,0,0,0,0]]
+  b4 = [[0,0,0,0,0,0],
+        [0,1,1,0,0,0],
+        [0,1,0,0,0,0],
+        [0,0,0,0,1,0],
+        [0,0,0,1,1,0],
+        [0,0,0,0,0,0]]
 
   s1 = Solution()
   s1.run(b4)
