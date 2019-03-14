@@ -8,7 +8,6 @@ class Solution():
       self.create_new_board()
       self.check_for_neighbors()
       self.update_board()
-      #self.print_newboard()
       response = input()
       self.print_board()
     self.good_bye_message()
@@ -73,12 +72,6 @@ class Solution():
     for row in range(self.rows_count):
         print(self.board[row])
     print('')
-
-  # def print_newboard(self):
-  #   print('newboard')
-  #   for row in range(self.rows_count):
-  #       print(self.newboard[row])
-  #   print('')
 
   def good_bye_message(self):
     print('Thanks for playing.')
