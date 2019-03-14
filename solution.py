@@ -1,26 +1,20 @@
 class Solution():
   def set_board(self, board):
-    self.b = board
-    self.m = len(board)
-    self.n = len(board[0])
+    self.board = board
+    self.rows_count = len(board)
+    self.columns_count = len(board[0])
 
   def return_board(self):
-    return self.b
-
-  def return_rows(self):
-    return self.m
-
-  def return_columns(self):
-    return self.n
+    return self.board
 
   def create_new_board(self):
-    self.nb = ([[0] * self.n]) * self.m
+    self.newboard = ([[0] * self.rows_count]) * self.columns_count
 
   def update_new_board(self, coordinates, amount):
-    self.nb[coordinates[0]][coordinates[1]] = amount
+    self.newboard[coordinates[0]][coordinates[1]] = amount
 
   def return_new_board(self):
-    return self.nb
+    return self.newboard
 
   def within_range(self, coordinate, elements):
     if coordinate >= 0 and coordinate < elements:
@@ -29,56 +23,52 @@ class Solution():
       return False
 
   def get_neighbors(self):
-    for i in range(self.return_rows()):
-      for j in range(self.return_columns()):
-        coordinates = [i, j]
-        count = self.find_neighbors(coordinates)
-        self.nb[j][i] = count
+    for row in range(self.rows_count):
+      for column in range(self.columns_count):
+        coordinates = [row, column]
+        amount = self.find_neighbors(coordinates)
 
   def find_neighbors(self, coordinates):
     count = 0
-    checks = 0
-    for i in range(-1 , 2):
-      for j in range(-1, 2):
-        first = coordinates[0] + i
-        second = coordinates[1] + j
-        if (self.within_range(first, self.m)) and (self.within_range(second, self.n)):
-          if i == 0 and j == 0:
+    for row in range(-1 , 2):
+      for column in range(-1, 2):
+        first = coordinates[0] + row
+        second = coordinates[1] + column
+        if (self.within_range(first, self.rows_count)) and (self.within_range(second, self.columns_count)):
+          if row == 0 and column == 0:
             continue
           else:
-            count += self.b[coordinates[0] + i][coordinates[1] + j]
+            count += self.board[coordinates[0] + row][coordinates[1] + column]
     return count
 
   # def update_board(self):
-  #   for i in range(self.return_rows()):
-  #     for j in range(self.return_columns()):
-  #       if self.nb[i][j] <= 1:
-  #         self.nb[i][j] = 0
-  #       if self.nb[i][j] >= 4:
-  #         self.nb[i][j] = 0
+  #   print("hi")
+    # for i in range(self.return_rows_count()):
+    #   for j in range(self.return_columns_count()):
+        # if self.b[i][j] == 1:
+        #   if self.nb[i][j] <= 1 or self.nb[i][j] >= 4:
+        #     self.b[i][j] = 0
+        # if self.b[i][j] == 0 and self.nb[i][j] == 3:
+        #     self.b[i][j] = 1
 
   def run(self, board):
     self.set_board(board)
     self.create_new_board()
     self.get_neighbors()
-    self.update_board()
-    self.return_board()
+    print(self.newboard)
+    #self.update_board()
+    print(self.return_board())
 
 def main():
   b1 = [[1,0,1],
         [1,1,1],
         [0,1,0]]
-  b2 = [[1,0,1],[1,1,1],[0,1,0],[0,0,1]]
+
+  b2 = [[1,1,1],
+        [1,1,1],
+        [0,1,1]]
 
   s1 = Solution()
   s1.run(b1)
 
 if __name__ == '__main__': main()
-
-
-
-    #determine size of board
-    #iterate through each cell
-    #determine neighbors
-    #determine if cell should live or die
-    #return the board
