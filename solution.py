@@ -4,8 +4,11 @@ class Solution():
     self.rows_count = len(board)
     self.columns_count = len(board[0])
 
-  def return_board(self):
-    return self.board
+  def print_board(self):
+    print('')
+    for row in range(self.rows_count):
+        print(self.board[row])
+    print('')
 
   def create_new_board(self):
     self.newboard = ([[0] * self.columns_count]) * self.rows_count
@@ -56,7 +59,7 @@ class Solution():
     self.create_new_board()
     self.get_neighbors()
     self.update_board()
-    print(self.return_board())
+    self.print_board()
 
 def main():
   b1 = [[1,0,1],
