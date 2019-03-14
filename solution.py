@@ -65,7 +65,7 @@ class Solution():
             self.board[row][column] = 0
           elif self.newboard[row][column] >= 4:
             self.board[row][column] = 0
-        if self.board[row][column] == 0 and self.newboard[row][column] >= 3:
+        if self.board[row][column] == 0 and self.newboard[row][column] == 3:
             self.board[row][column] = 1
 
   def print_board(self):
