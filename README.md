@@ -7,7 +7,7 @@
 
 1. Go to https://github.com/tfielder/game_of_life_python.
 2. From your command line (on a linux based-system) and the directory of your choice run `git clone https://github.com/tfielder/game_of_life_python.git`.
-3. Change into the directory by running `cd game_of_life`. (Make sure you have a Python version installed).
+3. Change into the directory by running `cd game_of_life_python`. (Make sure you have a Python version installed).
 4. Run `python solution.py`.
 5. Enjoy the game of life.
 
