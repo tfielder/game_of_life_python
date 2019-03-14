@@ -9,6 +9,7 @@ class Solution():
       self.update_board()
       self.print_board()
       x = input()
+    self.good_bye_message()
 
   def welcome_message(self):
     print("Welcome to Conway's Game of Life")
@@ -69,6 +70,9 @@ class Solution():
     for row in range(self.rows_count):
         print(self.board[row])
     print('')
+
+  def good_bye_message(self):
+    print('Thanks for playing')
 
 def main():
   b1 = [[1,0,1],
