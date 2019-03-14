@@ -3,12 +3,13 @@ class Solution():
     response = "r"
     self.set_board(board)
     self.welcome_message()
+    self.print_board()
     while response != "q":
-      self.print_board()
       self.create_new_board()
       self.check_for_neighbors()
       self.update_board()
       response = input()
+      self.print_board()
     self.good_bye_message()
 
   def welcome_message(self):
@@ -72,12 +73,6 @@ class Solution():
         print(self.board[row])
     print('')
 
-  def print_neighbor_board(self):
-      print('newboard')
-      for row in range(self.rows_count):
-          print(self.newboard[row])
-      print('')
-
   def good_bye_message(self):
     print('Thanks for playing.')
 
@@ -95,7 +90,13 @@ def main():
         [1,0,1],
         [1,1,0]]
 
+  b4 = [[0,0,0,0,0],
+        [0,0,0,0,0],
+        [0,1,1,1,0],
+        [0,0,0,0,0],
+        [0,0,0,0,0]]
+
   s1 = Solution()
-  s1.run(b3)
+  s1.run(b4)
 
 if __name__ == '__main__': main()
